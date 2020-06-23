@@ -1,0 +1,19 @@
+<h1>GoJS / Angular - Model change adds data twice - issue</h1>
+
+<div class="left">
+  <gojs-diagram
+    #graphComponent
+    class="aif-graph-div"
+    [initDiagram]="initDiagram"
+    [nodeDataArray]="graphNodeData"
+    [linkDataArray]="graphLinkData"
+    [divClassName]="diagramDivClassName"
+    [skipsDiagramUpdate]="skipsDiagramUpdate"
+    (modelChange)="diagramModelChange($event)"
+  >
+  </gojs-diagram>
+</div>
+
+<div>
+  <button type="button" (click)="clickLogNodes()">LOG NODE ARRAYS</button>
+</div>
