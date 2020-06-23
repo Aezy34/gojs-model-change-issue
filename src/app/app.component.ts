@@ -168,14 +168,6 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     );
   };
 
-  // Adding nodes and links to this.graphNodeData/this.graphLinkData
-  prepareNodes(messages: ChatGraphMessage[]) {
-    messages.forEach((message) => {
-      const node = { key: message.id, ...message };
-      this.graphNodeData.push(node);
-    });
-  }
-
   exampleMessagesArray = [
     new ChatGraphMessage("1", new ChatEntityMessage("First message", "AGENT")),
     new ChatGraphMessage("2", new ChatEntityMessage("Second message", "BOT")),
