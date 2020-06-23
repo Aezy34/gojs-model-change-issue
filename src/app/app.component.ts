@@ -178,6 +178,11 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   changeModel() {
     this.graphNodeData = [];
     this.graphLinkData = [];
+
+    this.exampleMessagesArray.forEach((message) => {
+      this.graphNodeData.push(message);
+    });
+
     const model = new go.GraphLinksModel(
       this.graphNodeData,
       this.graphLinkData
@@ -189,9 +194,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     model.nodeCategoryProperty = "category";
     this.graphComponent.diagram.model = model;
 
-    this.exampleMessagesArray.forEach((message) => {
-      this.graphNodeData.push(message);
-    });
+    this.graphComponent.diagram.model.nodeDataArray = this.exampleMessagesArray;
   }
 
   ngAfterViewInit() {

@@ -19,8 +19,13 @@ export class ChatGraphMessage {
   constructor(id, message) {
     this.key = id;
     this.id = id;
-    this.category = message.source;
-    this.message = message;
+    if (message) {
+      this.category = message.source;
+      this.message = message;
+    } else {
+      this.category = "AGENT";
+      this.message = new ChatEntityMessage(1, "Completely new message");
+    }
     this.nextGroupIdList = [];
     this.prevGroupIdList = [];
   }
